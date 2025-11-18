@@ -1,6 +1,6 @@
 # 🌴 The Wild Oasis – Hotel Booking Website
 
-**The Wild Oasis** is a modern, responsive hotel booking website that provides guests with a seamless experience for discovering and reserving cabins. Built with cutting-edge technologies, it offers intuitive booking flows, secure authentication, and beautiful UI components.
+**The Wild Oasis** is a modern, responsive hotel booking platform designed to offer guests a seamless experience for browsing and reserving cabins. Built with cutting-edge technologies, it delivers an intuitive booking flow, secure authentication, and a clean, elegant UI.
 
 🔗 **Live Demo**: [https://the-wild-oasis-website-ishwor.vercel.app/](https://the-wild-oasis-website-ishwor.vercel.app/)
 🧪 **Demo Login**: `test@test.com` / `test1234`
@@ -11,12 +11,12 @@
 
 > _"Creating delightful user experiences in the travel industry."_
 
-This client-facing application was designed to complement the admin system, focusing on:
+This client-facing application complements the admin system and focuses on:
 
-- 🎯 **User-Centric Design** – Intuitive booking process and cabin discovery
-- ⚡ **Performance** – Fast loading with Next.js and optimized images
-- 🔒 **Security** – Secure authentication and payment-ready structure
-- 📱 **Responsiveness** – Flawless experience across all devices
+- 🎯 **User-centric design** – Smooth booking experience
+- ⚡ **Performance** – Fast rendering with Next.js
+- 🔒 **Security** – Reliable authentication and session handling
+- 📱 **Responsiveness** – Pixel-perfect UI across devices
 
 ---
 
@@ -58,84 +58,81 @@ This client-facing application was designed to complement the admin system, focu
 
 ## ✨ Key Features
 
-### 🏠 Cabin Discovery
+### 1. Cabin Discovery & Listings
 
-- Browse available cabins with high-quality images
-- Filter by dates, capacity, and amenities
-- Detailed cabin pages with full descriptions and galleries
+- Browse all cabins with high-quality images
+- Filter by date, capacity, and preferences
+- Availability indicators for each cabin
 
-### 📅 Smart Booking System
+---
 
-- Interactive date picker with availability checking
-- Real-time price calculation with discounts
-- Flexible booking options (nights, guests)
+### 2. Cabin Details & Booking
 
-### 🔐 Secure Authentication
+- Detailed cabin descriptions with image galleries
+- Interactive availability calendar
+- Real-time pricing based on dates, guests, and discounts
+- Easy-to-use booking form
 
-- Guest registration and login
-- Profile management with booking history
-- Secure session management
+---
 
-### 💰 Transparent Pricing
+### 3. Smart Reservation & Pricing
 
-- Clear breakdown of costs (accommodation, breakfast, extras)
-- Discount display and application
-- No hidden fees
+- Transparent cost breakdown (accommodation + extras)
+- Availability validation before booking
+- Flexible booking options for nights and guests
 
-### 📱 Mobile-First Design
+---
 
-- Fully responsive across all device sizes
-- Touch-friendly interface elements
-- Optimized performance on mobile networks
+### 4. Secure Authentication & User Accounts
 
-### 🔔 Booking Management
+- Email/password and Google OAuth login
+- Auto-created guest profiles on first login
+- Manage bookings: view, edit, cancel
+- Update profile details like nationality and ID
 
-- View upcoming and past stays
-- Easy modification and cancellation
-- Digital check-in information
+---
+
+### 5. Responsive & Optimized UI
+
+- Fully mobile-friendly design
+- Smooth interactions on all devices
+- Fast load times with SSR, SSG, and image optimization
 
 ---
 
 ## 💻 Tech Stack
 
-**Frontend Framework**
+### **Frontend**
 
-- `Next.js 14` with App Router
-- `React 18`
-- `Tailwind CSS` for styling
+- Next.js 14 (App Router)
+- React 18
+- Tailwind CSS
 
-**Authentication & Backend**
+### **Backend & Auth**
 
-- `NextAuth v5` (beta) for authentication
-- `Supabase` for database and real-time features
+- Supabase (database + storage + auth)
+- NextAuth v5 (beta)
 
-**UI & UX Components**
+### **UI & Utilities**
 
-- `Heroicons` for beautiful icons
-- `react-day-picker` for date selection
-- `date-fns` for date manipulation
+- Heroicons
+- react-day-picker
+- date-fns
 
-**Performance & Optimization**
+### **Performance**
 
-- Next.js Image optimization
-- Server-side rendering (SSR)
-- Static generation where applicable
+- SSR + SSG
+- Next.js Image Optimization
 
 ---
 
 ## 🛠️ Installation & Setup
 
-### Prerequisites
-
-- Node.js 18+ (LTS recommended)
-- Supabase project with proper tables
-- Environment variables configured
-
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/it-is-it/the-wild-oasis-client-website.git
-cd the-wild-oasis-
+cd the-wild-oasis-client-website
 ```
 
 ### 2. Install Dependencies
@@ -144,31 +141,31 @@ cd the-wild-oasis-
 npm install
 ```
 
-### 3. Environment Configuration
+### 3. Add Environment Variables
 
-Create `.env.local` file:
+Create `.env.local`:
 
 ```env
 # Supabase
-SUPABASE_URL=your_supabase_project_url
+SUPABASE_URL=your_supabase_url
 SUPABASE_KEY=your_supabase_anon_key
 
 # NextAuth
 NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_secure_secret_here
+NEXTAUTH_SECRET=your_nextauth_secret
 
-# Optional OAuth providers
-# GOOGLE_CLIENT_ID=...
-# GOOGLE_CLIENT_SECRET=...
+# Optional OAuth
+# GOOGLE_CLIENT_ID=
+# GOOGLE_CLIENT_SECRET=
 ```
 
-### 4. Run Development Server
+### 4. Run Locally
 
 ```bash
 npm run dev
 ```
 
-Visit: http://localhost:3000
+Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -176,133 +173,110 @@ Visit: http://localhost:3000
 
 ```
 /app
-├── _components/           # Reusable app components
-├── _lib/                  # auth, actions, supabase client, data-service
+├── _components/           # Reusable UI components
+├── _lib/                  # Auth, actions, Supabase client, data-service
 ├── _styles/               # Global styles
-├── about/                 # About page
+├── about/
 ├── account/
-│   ├── page.js            # Account landing
-│   └── profile/page.js    # Profile management
-├── api/                   # NextAuth handlers and APIs
+│   ├── page.js
+│   └── profile/page.js
+├── api/
 ├── cabins/
-│   ├── page.js            # Cabin listings
-│   └── [cabinId]/page.js  # Single cabin page
-├── login/page.js          # Sign-in page (Google + Credentials)
-├── layout.js              # Root layout
-├── page.js                # Homepage
-├── error.js               # Error boundary
-├── loading.js             # Global loading UI
-└── not-found.js           # 404 page
+│   ├── page.js
+│   └── [cabinId]/page.js
+├── login/page.js
+├── layout.js
+├── page.js
+├── error.js
+├── loading.js
+└── not-found.js
 ```
 
 ---
 
 ## 🎯 Core Pages & Routes
 
-### `/` - Homepage
-
-- Button for exploring cabins
-
-### `/cabins` - Cabin Listings
-
-- Filterable grid of all cabins
-- Availability indicators
-
-### `/cabins/[id]` - Cabin Details
-
-- Full cabin information and photo
-- Availability calendar
-- Booking cabin buttons and form
-
-### `/about` - About Wild Oasis
-
-- History & details about wild oasis
-- button for exploring cabins
-
-### `/login` - Authentication
-
-- Secure login
-- Social auth options (Google)
-
-### `/account` - User Account
-
-- Welcome page
-- Booking history & can edit
-- update the guest profile
-- sign out button
+| Route          | Description                            |
+| -------------- | -------------------------------------- |
+| `/`            | Homepage with CTA                      |
+| `/cabins`      | All cabins + filters                   |
+| `/cabins/[id]` | Cabin details + gallery + availability |
+| `/about`       | About the Wild Oasis                   |
+| `/login`       | Google & credentials login             |
+| `/account`     | Bookings, profile, and sign-out        |
 
 ---
 
 ## 🔐 Authentication Flow
 
-1. **Guest Access**
+### 1. Browse as Guest
 
-   - Browse cabins and view prices/availability without signing in
-   - Details and calendar are available on each cabin page
+- View cabins, details, and pricing without signing in
 
-2. **Sign-in to Reserve**
+### 2. Sign In to Reserve
 
-   - Sign in with Google or email/password to make a reservation
-   - On first login, a guest profile is created; complete it under Account → Profile (e.g., nationality, ID)
+- Google or email/password
+- Auto-creates guest profile on first login
 
-3. **Account Management**
-   - View and manage reservations (edit/cancel where allowed)
-   - Update guest profile information
-   - Sign out when done
+### 3. Manage Account
+
+- Edit guest data
+- View, update, or cancel bookings
+- Secure logout
 
 ---
 
 ## 📦 Available Scripts
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Create production build
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run prod         # Build and start production
+npm run dev      # Dev server
+npm run build    # Production build
+npm run start    # Start production
+npm run lint     # ESLint
+npm run prod     # Build + run
 ```
 
 ---
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
+## 🚀 Deployment (Vercel)
 
 1. Push code to GitHub
-2. Connect repository to Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy automatically
+2. Connect repo to Vercel
+3. Add environment variables
+4. Deploy instantly 🎉
 
 ---
 
-## 🔧 Environment Variables
+## 🔧 Required Environment Variables
 
-| Variable               | Description                  | Required |
-| ---------------------- | ---------------------------- | -------- |
-| `SUPABASE_URL`         | Your Supabase project URL    | Yes      |
-| `SUPABASE_KEY`         | Supabase anon/public key     | Yes      |
-| `NEXTAUTH_URL`         | Application base URL         | Yes      |
-| `NEXTAUTH_SECRET`      | Encryption secret for tokens | Yes      |
-| `GOOGLE_CLIENT_ID`     | For Google OAuth (optional)  | No       |
-| `GOOGLE_CLIENT_SECRET` | For Google OAuth (optional)  | No       |
+| Variable               | Description             | Required |
+| ---------------------- | ----------------------- | -------- |
+| `SUPABASE_URL`         | Supabase project URL    | ✅       |
+| `SUPABASE_KEY`         | Supabase anon key       | ✅       |
+| `NEXTAUTH_URL`         | Base URL                | ✅       |
+| `NEXTAUTH_SECRET`      | Token encryption secret | ✅       |
+| `GOOGLE_CLIENT_ID`     | OAuth                   | Optional |
+| `GOOGLE_CLIENT_SECRET` | OAuth                   | Optional |
+
+---
 
 ## 🔮 Future Enhancements
 
-- [ ] **Payment Integration** – Stripe/PayPal support
-- [ ] **Reviews & Ratings** – Guest feedback system
-- [ ] **Wishlist Feature** – Save favorite cabins
-- [ ] **Advanced Filters** – More search options
-- [ ] **Email Notifications** – Booking confirmations
-- [ ] **Multi-language Support** – International guests
-- [ ] **PWA Features** – Offline capability
+- [ ] Stripe / PayPal payments
+- [ ] Reviews & ratings
+- [ ] Wishlist for favorite cabins
+- [ ] Advanced search + filters
+- [ ] Email/SMS notifications
+- [ ] Multi-language support
+- [ ] PWA offline support
 
 ---
 
 ## 🐛 Known Issues
 
-- Date picker may need timezone handling improvements
-- Image optimization for very large galleries
-- Mobile Safari specific styling considerations
+- Timezone inconsistencies with date picker
+- Very large image galleries need optimization
+- Minor styling quirks on Safari
 
 ---
 
@@ -310,28 +284,25 @@ npm run prod         # Build and start production
 
 **Ishwor Timalsina**
 
-- GitHub: [@it-is-it](https://github.com/it-is-it)
-- Portfolio: [ishwortimalsina.com.np](https://ishwortimalsina.com.np)
-- LinkedIn: [Ishwor Timalsina](https://linkedin.com/in/ishwor-timalsina)
+- Portfolio: [https://ishwortimalsina.com.np](https://ishwortimalsina.com.np)
+- LinkedIn: [https://linkedin.com/in/ishwor-timalsina](https://linkedin.com/in/ishwor-timalsina)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Next.js team for the amazing framework
-- Supabase for the excellent backend services
-- Vercel for seamless deployment
-- The open-source community for invaluable packages
-- Jonas Schmedtmann and the Udemy course that inspired and guided this build
-
-_The Wild Oasis – Where nature meets luxury comfort._ 🌲✨
+- Next.js team
+- Supabase
+- Vercel
+- Open-source community
+- Jonas Schmedtmann’s Udemy course for inspiration
 
 ---
 
 ## 🔗 Related Projects
 
-Here are some other projects you might find useful or inspiring:
+- 🏨 **The Wild Oasis Admin** — [https://github.com/it-is-it/the-wild-oasis](https://github.com/it-is-it/the-wild-oasis)
+- 🛒 **Ecommerce Website** — [https://github.com/it-is-it/Ecommerce](https://github.com/it-is-it/Ecommerce)
+- 🌍 **WorldWise Travel App** — [https://github.com/it-is-it/Worldwise](https://github.com/it-is-it/Worldwise)
 
-- 🏨 [The Wild Oasis Admin site](https://github.com/it-is-it/the-wild-oasis) — Hotel management dashboard with modern UI and real-time data handling.
-- 🏨 [Ecommerce Website from Next.js](https://github.com/it-is-it/Ecommerce) — Full-stack eCommerce web application built with Next.js 15 (App Router), MongoDB, Stripe, and NextAuth.js. It includes both user and admin functionalities, secure payment processing, and a modern UI powered by Bootstrap and Tailwind.
-- 🌍 [Worldwise](https://github.com/it-is-it/Worldwise) — Travel tracking app to mark places you’ve visited and plan new adventures.
+---
