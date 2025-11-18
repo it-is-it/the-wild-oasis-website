@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Wild Oasis — Website
 
-## Getting Started
+Modern web app built with Next.js (App Router) and Tailwind CSS. It integrates Supabase for backend/services and uses NextAuth for authentication. UI leverages Heroicons, date-fns, and react-day-picker.
 
-First, run the development server:
+## Overview
+
+- **Framework**: Next.js 14 (App Router in `app/`)
+- **Styling**: Tailwind CSS
+- **Auth**: NextAuth v5 (beta)
+- **Backend/DB/Storage**: Supabase
+- **Date utilities**: date-fns
+- **Date picker**: react-day-picker
+
+## Tech Stack
+
+- next@14.2.x, react@18, react-dom@18
+- tailwindcss@^3, postcss
+- @supabase/supabase-js
+- next-auth@^5.0.0-beta
+- date-fns, @heroicons/react, react-day-picker
+
+## Requirements
+
+- Node.js 18+ (recommended LTS)
+- npm, yarn, pnpm, or bun
+- Supabase project and credentials
+
+## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   # or: yarn | pnpm i | bun i
+   ```
+2. Create `.env.local` at the project root and add the environment variables below.
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+4. Open http://localhost:3000
+
+## Environment Variables
+
+Create a `.env.local` file with the following (placeholders shown; adjust to your setup):
+
+```
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=<your_supabase_url>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<your_supabase_anon_key>
+
+# NextAuth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=<generate_a_strong_secret>
+
+# (Optional) Provider credentials / additional secrets if used
+# GOOGLE_CLIENT_ID=...
+# GOOGLE_CLIENT_SECRET=...
+```
+
+If you deploy (e.g., on Vercel), set the same variables in the deployment environment. Do not commit secrets.
+
+## Available Scripts
+
+From `package.json`:
+
+- `npm run dev` — Start Next.js dev server
+- `npm run build` — Create production build
+- `npm run start` — Start production server
+- `npm run prod` — Build then start in production mode
+- `npm run lint` — Run Next.js ESLint
+
+## Running Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then visit http://localhost:3000. Changes in `app/` hot-reload automatically.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Linting
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Hosting**: Vercel is recommended for Next.js
+- **Env**: Add `.env` values (Supabase + NextAuth) to your hosting provider
+- **Supabase**: Ensure Database/Auth/Storage policies and redirects (if using OAuth) are configured
 
-## Deploy on Vercel
+Notes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- NextAuth v5 is in beta; verify adapter/provider setup and callbacks as needed
+- If you use image optimization, configure allowed domains in `next.config.js`
