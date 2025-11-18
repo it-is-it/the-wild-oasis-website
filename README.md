@@ -2,7 +2,7 @@
 
 **The Wild Oasis** is a modern, responsive hotel booking platform designed to offer guests a seamless experience for browsing and reserving cabins. Built with cutting-edge technologies, it delivers an intuitive booking flow, secure authentication, and a clean, elegant UI.
 
-🔗 **Live Demo**: [https://the-wild-oasis-website-ishwor.vercel.app/](https://the-wild-oasis-website-ishwor.vercel.app/)
+🔗 **Live Demo**: [The wild Oasis Website - Ishwor](https://the-wild-oasis-website-ishwor.vercel.app/)<br>
 🧪 **Demo Login**: `test@test.com` / `test1234`
 
 ---
