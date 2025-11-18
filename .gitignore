@@ -43,3 +43,18 @@ next-env.d.ts
 # Editor settings
 .vscode/
 .idea/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.AppleDouble
+.LSOverride
+
+# Build output
+/out/
+build/
